@@ -11,7 +11,7 @@ export class TripDataService {
   constructor(private http: Http,
     @Inject(BROWSER_STORAGE) private storage: Storage) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api/';
+  private apiBaseUrl = 'http://appapi:3000/api/';
   private tripUrl = `${this.apiBaseUrl}trips/`
 
   public getTrip(tripCode: string): Promise<Trip> {
