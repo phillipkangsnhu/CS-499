@@ -1,5 +1,5 @@
 {
-  "name": "cs-465",
+  "name": "cs-499",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -16,11 +16,13 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.0",
+    "knex": "^3.1.0",
     "mongoose": "~5.9.2",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "hbs": "^4.2.0",
