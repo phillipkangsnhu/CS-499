@@ -13,6 +13,7 @@ require("./app_api/config/passport");
 var indexRouter = require('./app_server/routes/index');
 var travelRouter = require('./app_server/routes/travel');
 var apiRouter = require('./app_api/routes/index');
+const { rateLimiter } = require("./tokenBucket");
 
 var app = express();
 
@@ -29,6 +30,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
+
+// Apply the rate limiter middleware globally
+app.use(rateLimiter);
 
 //allow CORS
 app.use('/api', (req,res,next) => {
