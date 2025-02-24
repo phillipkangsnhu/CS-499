@@ -1,28 +1,155 @@
-#### Architecture
+# Travlr: Travel Management System
 
-I used static files, a lightweight webserver, and SPA framework to build this project, in order of complexity from lowest to highest.
-As I got higher in complexity, the amount of interleved systems became greater, but so did the strength of how opinionated the framework was.
-Static files were definitely the easiest to spin up quickly, but also became cumbersome quickly when dealing with more complicated behaviors.
-The SPA framework was more complex to start quickly, but was more adaptable to complex data structures and interactions with the database.
+A full-stack travel management application featuring an ExpressJS backend + web server and AngularJS admin portal.
 
-The backend used a NoSQL MongoDB database because it was quick to set up, and our data's schema was changing through the course.
-The document structure and NoSQL nature of MongoDB allowed us to pivot fast and add more data structures without being bogged down in schema definitions and migrations.
+## Features
 
-#### Functionality
+- **Secure Authentication System** with JWT and Passport.js
+- **Rate Limiting** protection against DDoS attacks
+- **REST API** with comprehensive error handling
+- **Admin Portal** built with AngularJS
+- **Docker Support** for easy deployment
+- **Database Integration** with SQLite3
 
-JSON is a data structure, whereas Javascript is a programming language. JSON helps mediatate data flow between the frontend and backend in a human-readable way, making it easier to debug issues.
-We built out a form in static HTML which required the same component copy and pasted a few times with the field names being different.
-We soon refactored this to generatively create form fields, making the code much easier to read.
-Using reusable UI components also help to make the code more manageable and helps to avoid reinventing the wheel for parts of the website which share a lot of UI elements.
+## Prerequisites
 
-#### Testing
+- Node.js (v23 or higher)
+- npm (Node Package Manager)
+- MongoDB instance
+- Docker (optional)
 
-I initially tested by looking at the CLI output of function calls with console.error statements. As we started API development, I used Postman to mock API calls and see what data was returned.
-As we added login security, more steps became involved in testing. I had to use the token returned by the login API call to call other API endpoints I wanted to test.
-Endpoints route to specific method calls in a full stack application. Additionally, middleware such as security modules can be attached to endpoints to perform tasks such as validation and authentication before the specific method is called.
+## Tech Stack
 
-#### Reflection
+**Backend:**
+- ExpressJS
+- SQLite3
+- Passport.js
+- JWT Authentication
 
-This course has helped me to understand what a realistic professional task in full stack development looks like.
-I have learned how to use ExpressJS, MongoDB, and Angular to create full stack applications on my own.
-I believe that graduating with these skills already on hand will make me a more marketable candidate on the job market.
+**Web Server:**
+- ExpressJS
+- Handlebars
+
+**Admin Portal:**
+- AngularJS 6.1.0
+- RxJS
+- TypeScript
+
+## Project Structure
+
+```
+├── app_server/         # Web server
+│   ├── routes/         # Route definitions
+│   ├── controllers/    # Controller definitions
+│   ├── views/          # HBS templates
+│   └── database/       # DB configuration
+├── app_api/            # API server
+│   ├── config/         # PassportJS config
+│   ├── routes/         # Route definitions
+│   └── controllers/    # Controller definitions
+├── public/             # Static files
+├── migrations/         # Database migration files
+├── travlr/             # HTML files
+└── app_admin/          # Angular admin interface
+```
+
+## Getting Started
+
+1. **Clone the repository**
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment**
+   - Create a `.env` file in the root directory
+   - Add required environment variables
+
+4. **Start the application**
+   ```bash
+   npm run start
+   ```
+
+### Docker Setup
+
+```bash
+# Build the image
+docker build -t travel-management .
+
+# Run the container
+docker run -p 3000:3000 travel-management
+```
+
+## Security Features
+
+- JWT-based authentication
+- Rate limiting middleware
+- CORS security configuration
+- Secure password management
+- Environment variable protection
+
+## Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+Includes:
+- Jasmine unit tests
+- Karma test runner
+- Protractor E2E tests
+
+## Key Implementation Highlights
+
+### Collaborative Development
+- Modular code structure
+- Clear documentation
+- Docker containerization
+- Version control ready
+
+### API Design
+- RESTful architecture
+- CORS enabled
+- Comprehensive error handling
+- Request logging
+
+### Security Implementation
+- Rate limiting algorithm
+- JWT authentication flow
+- Secure password handling
+- Protected environment configs
+
+## Academic Context
+
+This project demonstrates key computer science competencies:
+
+### Collaborative Environment (CS-499-01)
+- Modular architecture supporting team development
+- Clear documentation for diverse audiences
+- Containerized development environment
+
+### Technical Communication (CS-499-02)
+- Professional API documentation
+- Clear code organization
+- Comprehensive inline comments
+
+### Computing Solutions (CS-499-03)
+- Efficient rate limiting implementation
+- RESTful API patterns
+- Modern authentication flow
+
+### Industry Standards (CS-499-04)
+- Contemporary framework usage
+- Container technology
+- Testing implementation
+
+### Security Mindset (CS-499-05)
+- DDoS protection
+- Secure authentication
+- Data privacy measures
+
+---
+
+*This project was developed as part of a Computer Science capstone course, demonstrating professional software development practices and security implementations.*
